@@ -1,62 +1,63 @@
-// content-list.component.ts
-import { Component } from '@angular/core';
+// src/app/content-list/content-list.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
 
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.scss'],
+  styleUrls: ['./content-list.component.scss']
 })
-export class ContentListComponent {
-  contentArray = [
+export class ContentListComponent implements OnInit {
+  contentItems: Content[] = [
     {
       id: 1,
-      title: 'F1 Race 1',
-      image: 'assets/img/lewis_hamilton.jpg',
-      description: 'Exciting F1 race with intense battles.',
-      creator: 'F1 Racing Team',
-  
-      tags: ['Exciting', 'Intense', 'F1'],
+      title: 'Mercedes-AMG Petronas Formula One Team',
+      description: 'Explore the dominance of Mercedes in recent Formula 1 seasons.',
+      creator: 'Aditya Suthar',
+      imgURL: 'assets/img/lewis_hamilton.jpg',
+      type: 'Team',
+      tags: ['Mercedes', 'F1', 'Champions']
     },
     {
       id: 2,
-      title: 'F1 Race 2',
-      image: 'assets/img/Ferrari.jpg',
-      description: 'High-speed F1 race on a challenging circuit.',
-      creator: 'Speedy Racers',
-      type: 'Race',
-      tags: ['High Speed', 'Challenging', 'F1'],
+      title: 'Scuderia Ferrari',
+      description: 'Discover the rich history and legacy of the iconic Ferrari F1 team.',
+      creator: 'Aditya Suthar',
+      imgURL: 'assets/img/lewis_hamilton.jpg',
+      type: 'Team',
+      tags: ['Ferrari', 'Formula 1', 'Italian Racing']
     },
     {
       id: 3,
-      title: 'F1 Documentary',
-      image: 'assets/img/monaco_gp.jpg',
-      description: 'Behind the scenes of the F1 world and its legends.',
-      creator: 'Documentary Productions',
-      type: 'Documentary',
-      tags: ['Insightful', 'Legends', 'F1'],
+      title: 'Red Bull Racing',
+      description: 'Follow the journey of Red Bull Racing and their quest for championships.',
+      creator: 'Aditya Suthar',
+      imgURL: 'assets/img/Ferrari.jpg',
+      type: 'Team',
+      tags: ['Red Bull', 'F1', 'Austrian Racing']
     },
     {
       id: 4,
-      title: 'F1 Championship Highlights',
-      image: 'assets/img/lewis_hamilton.jpg',
-      description: 'Recap of the thrilling moments from the F1 championship.',
-      creator: 'Sports Network',
-      type: 'Highlights',
-      tags: ['Thrilling', 'Championship', 'F1'],
+      title: 'McLaren F1 Team',
+      description: 'Follow the journey of McLaren f1 Team and their quest for championships.',
+      creator: 'Aditya Suthar',
+      imgURL: 'assets/img/monaco_gp.jpg',
+      type: 'Team',
+      tags: ['McLaren', 'Formula 1', 'British Racing']
     },
     {
       id: 5,
-      title: 'F1 Team Profile',
-      image: 'assets/img/Ferrari.jpg',
-      description: 'Learn about the history and achievements of an F1 team.',
-      creator: 'Team Profiles Ltd.',
-      type: 'Profile',
-      tags: ['History', 'Achievements', 'F1'],
-    }
-    // Add more F1 content items as needed
+      title: 'Alfa Romeo Racing Orlen',
+      description: 'Follow the journey of Alfa Romeo Racing and their quest for championships.',
+      creator: 'Aditya Suthar',
+      imgURL: 'assets/img/Ferrari.jpg',
+      type: 'Team',
+      tags: ['Alfa Romeo', 'F1', 'Italian Racing']
+    },
+    // Add more content items as needed
   ];
 
-  handleImageClick(id: number, title: string) {
-    console.log(`Clicked on image with ID: ${id} and Title: ${title}`);
-  }
+  constructor() {}
+
+  ngOnInit(): void {}
 }

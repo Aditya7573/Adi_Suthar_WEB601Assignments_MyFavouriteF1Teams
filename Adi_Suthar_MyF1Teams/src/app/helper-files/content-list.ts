@@ -10,28 +10,27 @@ export class ContentList {
     return this.contentArray;
   }
 
-  add(item: Content): void {
-    this.contentArray.push(item);
+  add(contentItem: Content): void {
+    this.contentArray.push(contentItem);
   }
 
   count(): number {
     return this.contentArray.length;
   }
 
-  displayItem(index: number): string {
+  displayAtIndex(index: number): string {
     if (index < 0 || index >= this.contentArray.length) {
-      return "<p>Error: Index out of range</p>";
+      return '<p>Error: Index out of range</p>';
     }
 
-    const { title, description, creator, imgURL, type } = this.contentArray[index];
-
+    const contentItem = this.contentArray[index];
     return `
       <div>
-        <h3>${title}</h3>
-        <p>${description}</p>
-        <p>Creator: ${creator}</p>
-        <img src="${imgURL || ''}" alt="Image" />
-        <p>Type: ${type || ''}</p>
+        <h2>${contentItem.title}</h2>
+        <p>${contentItem.description}</p>
+        <p>Creator: ${contentItem.creator}</p>
+        ${contentItem.imgURL ? `<img src="${contentItem.imgURL}" alt="Image">` : ''}
+        <p>Type: ${contentItem.type || 'N/A'}</p>
       </div>
     `;
   }

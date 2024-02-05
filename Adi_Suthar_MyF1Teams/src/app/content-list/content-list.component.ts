@@ -54,6 +54,25 @@ export class ContentListComponent implements OnInit {
       type: 'Team',
       tags: ['Alfa Romeo', 'F1', 'Italian Racing']
     },
+    {
+      "id": 6,
+      "title": "Williams Racing",
+      "description": "Explore the historic journey of Williams Racing in Formula 1.",
+      "creator": "Aditya Suthar",
+      "imgURL": "assets/img/Ferrari.jpg",
+      "type": "Team",
+      "tags": ["Williams", "F1", "British Racing"]
+    },
+    {
+      "id": 7,
+      "title": "Haas F1 Team",
+      "description": "Follow the challenges and victories of Haas F1 Team in the world of Formula 1.",
+      "creator": "Aditya Suthar",
+      "imgURL": "assets/img/Ferrari.jpg",
+      "type": "Team",
+      "tags": ["Haas", "Formula 1", "American Racing"]
+    }
+    
     // Add more content items as needed
   ];
   searchTitle: string = ''; // Add this line

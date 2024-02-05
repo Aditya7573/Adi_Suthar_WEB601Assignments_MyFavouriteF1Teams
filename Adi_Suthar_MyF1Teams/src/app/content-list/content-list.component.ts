@@ -11,7 +11,7 @@ export class ContentListComponent implements OnInit {
   contentItems: Content[] = [
     {
       id: 1,
-      title: 'Mercedes-AMG Petronas Formula One Team',
+      title: 'A',
       description: 'Explore the dominance of Mercedes in recent Formula 1 seasons.',
       creator: 'Aditya Suthar',
       imgURL: 'assets/img/lewis_hamilton.jpg',
@@ -33,7 +33,7 @@ export class ContentListComponent implements OnInit {
       description: 'Follow the journey of Red Bull Racing and their quest for championships.',
       creator: 'Aditya Suthar',
       imgURL: 'assets/img/Ferrari.jpg',
-      type: 'Team',
+      type: 'Racing',
       tags: ['Red Bull', 'F1', 'Austrian Racing']
     },
     {
@@ -42,7 +42,7 @@ export class ContentListComponent implements OnInit {
       description: 'Follow the journey of McLaren f1 Team and their quest for championships.',
       creator: 'Aditya Suthar',
       imgURL: 'assets/img/monaco_gp.jpg',
-      type: 'Team',
+      type: 'Race',
       tags: ['McLaren', 'Formula 1', 'British Racing']
     },
     {
@@ -56,8 +56,21 @@ export class ContentListComponent implements OnInit {
     },
     // Add more content items as needed
   ];
+  searchTitle: string = ''; // Add this line
+  searchResult: string = ''; // Add this line
+  authorToSearch: string = ''; // Add this line
+  authorSearchMessage: { found: boolean, message: string } = { found: false, message: '' }; // Add this line
 
-  constructor() {}
+  // Add the searchContent method
+// Update the searchContent method
+searchContent() {
+  const searchTerm = this.searchTitle.toLowerCase(); // Convert to lowercase for case-insensitivity
+  this.searchResult = this.contentItems.some(content => content.title.toLowerCase().includes(searchTerm))
+    ? 'Content found!'
+    : 'Content not found.';
+}
+
+constructor() {}
 
   ngOnInit(): void {}
-}
+}  //

@@ -1,4 +1,20 @@
 <!-- src/app/content-list/content-list.component.html -->
-<div *ngFor="let content of contentItems; let first = first" class="content-card" [ngClass]="{'first-card': first}">
-  <app-content-card [content]="content"></app-content-card>
+<div>
+  <label for="titleToSearchFor">Title search:</label>
+  <input type="text" id="titleToSearchFor" [(ngModel)]="searchTitle" autofocus>
+  <button (click)="searchContent()">Search by Title</button>
+</div>
+
+<div class="title-error" [style.color]="searchResult === 'Content found!' ? 'green' : 'red'">
+  {{ searchResult }}
+</div>
+
+<!-- Display the content list with a loop -->
+<div *ngFor="let type of ['Team', 'Racing', 'Race']">
+  <h2>{{ type }} List</h2>
+  <div *ngFor="let content of contentItems | contentFilter: type" [class]="content.type">
+    <div [class.highlight]="searchResult === content.title">
+      <app-content-card [content]="content"></app-content-card>
+    </div>
+  </div>
 </div>

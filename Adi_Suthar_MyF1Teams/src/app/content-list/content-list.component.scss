@@ -1,0 +1,27 @@
+/* content-list.component.scss */
+
+.Team {
+  background-color: #4caf50; /* green */
+}
+
+.Racing {
+  background-color: #f44336; /* red */
+}
+
+.Race {
+  background-color: #2196f3; /* blue */
+}
+
+.highlight {
+  border: 2px solid yellow;
+}
+
+.content-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.not-found {
+  color: red;
+}

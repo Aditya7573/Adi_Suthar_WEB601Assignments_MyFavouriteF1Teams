@@ -55,7 +55,7 @@ export class ContentListComponent implements OnInit {
       tags: ['Alfa Romeo', 'F1', 'Italian Racing']
     },
     {
-      "id": 6,
+      id: 6,
       "title": "Williams Racing",
       "description": "Explore the historic journey of Williams Racing in Formula 1.",
       "creator": "Aditya Suthar",
@@ -68,20 +68,19 @@ export class ContentListComponent implements OnInit {
       "title": "Haas F1 Team",
       "description": "Follow the challenges and victories of Haas F1 Team in the world of Formula 1.",
       "creator": "Aditya Suthar",
-      "imgURL": "assets/img/Ferrari.jpg",
+    
       "type": "Team",
       "tags": ["Haas", "Formula 1", "American Racing"]
     }
     
     // Add more content items as needed
   ];
-  searchTitle: string = ''; // Add this line
-  searchResult: string = ''; // Add this line
-  authorToSearch: string = ''; // Add this line
-  authorSearchMessage: { found: boolean, message: string } = { found: false, message: '' }; // Add this line
+  searchTitle: string = ''; 
+  searchResult: string = ''; 
+  authorToSearch: string = ''; 
+  authorSearchMessage: { found: boolean, message: string } = { found: false, message: '' }; 
 
-  // Add the searchContent method
-// Update the searchContent method
+  //  searchContent method
 searchContent() {
   const searchTerm = this.searchTitle.toLowerCase(); // Convert to lowercase for case-insensitivity
   this.searchResult = this.contentItems.some(content => content.title.toLowerCase().includes(searchTerm))

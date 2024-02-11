@@ -1,9 +1,18 @@
 <!-- src/app/content-card/content-card.component.html -->
 <div class="content-card" [ngClass]="{'first-card': content.id === 1}">
   <div class="card-header">{{ content.title }}</div>
-  <img *ngIf="content.imgURL" [src]="content.imgURL" alt="Content Image" (click)="onImageClick()" />
+  <img *ngIf="content.imgURL else defaultImage" [src]="content.imgURL" alt="Content Image" (click)="onImageClick()" />
+  <ng-template #defaultImage>
+    <img src="assets/img/default.jpg" alt="Default Image" />
+  </ng-template>
   <p *ngIf="content.description">Description: {{ content.description }}</p>
   <p *ngIf="content.creator">Creator: {{ content.creator }}</p>
-  <p *ngIf="content.type">Type: {{ content.type }}</p>
-  <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
+
+  <div appHoverAffect>
+    <p class="content-type">Type: {{ content.type }}</p>
+    <div *ngFor="let tag of content.tags">
+      <span appHoverAffect>{{ tag }}</span>
+    </div>
+  </div>
+
 </div>

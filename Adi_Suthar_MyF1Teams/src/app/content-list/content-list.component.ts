@@ -55,7 +55,7 @@ export class ContentListComponent implements OnInit {
       tags: ['Alfa Romeo', 'F1', 'Italian Racing']
     },
     {
-      id: 6,
+      "id": 6,
       "title": "Williams Racing",
       "description": "Explore the historic journey of Williams Racing in Formula 1.",
       "creator": "Aditya Suthar",
@@ -75,20 +75,35 @@ export class ContentListComponent implements OnInit {
     
     // Add more content items as needed
   ];
-  searchTitle: string = ''; 
-  searchResult: string = ''; 
-  authorToSearch: string = ''; 
-  authorSearchMessage: { found: boolean, message: string } = { found: false, message: '' }; 
+  searchTitle: string = '';
+  searchResult: string = '';
+  authorToSearch: string = '';
+  authorSearchMessage: { found: boolean, message: string } = { found: false, message: '' };
 
-  //  searchContent method
-searchContent() {
-  const searchTerm = this.searchTitle.toLowerCase(); // Convert to lowercase for case-insensitivity
-  this.searchResult = this.contentItems.some(content => content.title.toLowerCase().includes(searchTerm))
-    ? 'Content found!'
-    : 'Content not found.';
-}
+  constructor() {}
 
-constructor() {}
+  
+
 
   ngOnInit(): void {}
-}  //
+
+
+  
+
+  // Search content method
+  searchContent() {
+    const searchTerm = this.searchTitle.toLowerCase(); // Convert to lowercase for case-insensitivity
+    this.searchResult = this.contentItems.some(content => content.title.toLowerCase().includes(searchTerm))
+      ? 'Content found!'
+      : 'Content not found.';
+  }
+
+  onContentCreated(newContent: Content) {
+    // Assign a new reference to contentItems
+    this.contentItems = [...this.contentItems, newContent];
+    // Log success message
+    console.log(`Content '${newContent.title}' added successfully.`);
+  }
+  
+
+}

@@ -1,0 +1,23 @@
+<!-- create-content.component.html -->
+<div class="create-content-form">
+    <label for="contentId">ID:</label>
+    <input type="number" id="contentId" [(ngModel)]="newContent.id">
+  
+    <label for="contentTitle">Title:</label>
+    <input type="text" id="contentTitle" [(ngModel)]="newContent.title">
+  
+    <label for="contentDescription">Description:</label>
+    <input type="text" id="contentDescription" [(ngModel)]="newContent.description">
+  
+    <label for="contentCreator">Creator:</label>
+    <input type="text" id="contentCreator" [(ngModel)]="newContent.creator">
+  
+    <label for="contentType">Type:</label>
+    <input type="text" id="contentType" [(ngModel)]="newContent.type">
+  
+    <!-- Add other necessary fields here -->
+  
+    <button (click)="createContent()">Create Content</button>
+  
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>

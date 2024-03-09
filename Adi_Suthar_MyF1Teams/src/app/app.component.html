@@ -228,8 +228,12 @@
       <h1>Welcome to My Angular App</h1>
 <br>
 <!-- app.component.html -->
-<app-content-list></app-content-list>
+<input type="number" [(ngModel)]="contentId">
+<button (click)="onRetrieveContent()">Retrieve Content</button>
+<app-app-messages></app-app-messages>
 
+<app-content-card [content]="singleContentItem" [boxShadow]="true" *ngIf="singleContentItem"></app-content-card>
+<app-content-list></app-content-list>
 
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>

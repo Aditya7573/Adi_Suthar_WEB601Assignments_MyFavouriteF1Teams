@@ -26,6 +26,7 @@ export class CreateContentComponent {
       this.errorMessage = 'Please fill in all required fields.';
       return;
     }
+    
 
     // Emit content if all fields are filled
     this.errorMessage = '';
